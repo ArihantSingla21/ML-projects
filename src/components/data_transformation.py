@@ -43,11 +43,14 @@ class data_transform:
             logging.info(f"categorical_features: {categorical_features}")
             logging.info(f"numerical_features: {numerical_features}")
 
-            preprocessor = ColumnTransformer(
-                transformers=[
-                    ("num_pipeline", num_pipeline, numerical_features),
-                    ("cat_pipeline", cat_pipeline, categorical_features)
+            preprocessor=ColumnTransformer(
+                [
+                ("num_pipeline",num_pipeline,numerical_features),
+                ("cat_pipelines",cat_pipeline,categorical_features)
+
                 ]
+
+
             )
 
             return preprocessor
